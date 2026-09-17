@@ -1,0 +1,216 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  transition: background 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
+  border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 0;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.logoMark {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--border-accent);
+  padding: 4px 9px;
+  border-radius: var(--r-sm);
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+}
+
+.logo:hover .logoMark {
+  background: rgba(var(--accent-rgb), 0.18);
+}
+
+.logoText {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Desktop nav */
+.nav { display: flex; }
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.navLink {
+  position: relative;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 11px;
+  border-radius: var(--r-sm);
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+}
+
+.navLinkActive {
+  color: var(--text-primary);
+}
+
+.activeDot {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.themeBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  padding: 7px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  font-size: 0.8rem;
+}
+
+.themeBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  background: var(--bg-subtle);
+}
+
+.resumeBtn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  padding: 7px 14px;
+  border-radius: var(--r-sm);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s var(--ease);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.resumeBtn:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Mobile toggle */
+.menuBtn {
+  display: none;
+  color: var(--text-secondary);
+  padding: 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s;
+  margin-left: 12px;
+}
+
+.menuBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+/* Mobile menu */
+.mobileMenu {
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0 20px;
+}
+
+.mobileList {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.mobileLink {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 11px 12px;
+  border-radius: var(--r-md);
+  transition: color 0.2s, background 0.2s;
+}
+
+.mobileLink:hover,
+.mobileLinkActive {
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+}
+
+.mobileFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.mobileResume {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .actions .resumeBtn { display: none; }
+  .menuBtn { display: flex; }
+}
+
+@media (max-width: 480px) {
+  .logoText { display: none; }
+}

@@ -1,0 +1,86 @@
+.window {
+  background: #0a0a14;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow:
+    var(--shadow-lg),
+    0 0 0 1px rgba(255,255,255,0.03),
+    var(--shadow-accent);
+  width: 100%;
+  max-width: 440px;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 16px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.filename {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-left: 10px;
+  letter-spacing: 0.02em;
+}
+
+.body {
+  padding: 18px 0 22px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.9;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  padding: 0 20px;
+  transition: background 0.15s;
+}
+
+.line:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+.lineNum {
+  color: rgba(255,255,255,0.15);
+  min-width: 22px;
+  margin-right: 18px;
+  font-size: 0.68rem;
+  user-select: none;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.code { flex: 1; }
+
+/* Syntax token colors — VS Code Dark+ inspired */
+.keyword { color: #c792ea; }
+.var     { color: #82aaff; }
+.key     { color: #f07178; }
+.str     { color: #c3e88d; }
+.bool    { color: #ff9cac; }
+.fn      { color: #82aaff; }
+.op      { color: #89ddff; }
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  background: var(--accent);
+  margin-left: 58px;
+  margin-top: 6px;
+  border-radius: 1px;
+  vertical-align: middle;
+}

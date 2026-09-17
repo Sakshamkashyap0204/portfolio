@@ -1,0 +1,27 @@
+.bg {
+  background: var(--bg-2);
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 66.666%;
+  margin: 0 auto;
+}
+
+@media (max-width: 960px) {
+  .featured { grid-template-columns: 1fr; }
+  .grid     { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}

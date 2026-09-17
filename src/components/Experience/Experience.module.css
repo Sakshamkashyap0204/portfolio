@@ -1,0 +1,133 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  gap: 28px;
+}
+
+.lineCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+  flex-shrink: 0;
+}
+
+.line {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+  margin-top: 8px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  margin-bottom: 0;
+  flex: 1;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.role {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 5px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.listItem {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.bullet {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .lineCol { display: none; }
+  .card { padding: 22px; }
+  .cardHeader { flex-direction: column; gap: 10px; }
+}

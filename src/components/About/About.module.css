@@ -1,0 +1,141 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 72px;
+  align-items: start;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text p {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.links {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: color 0.2s, gap 0.2s;
+}
+
+.link:hover {
+  color: var(--accent-hover);
+  gap: 7px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.statCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.2s, transform 0.2s var(--ease);
+}
+
+.statCard:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--mono);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.statSub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.eduCard {
+  grid-column: 1 / -1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 18px 20px;
+  transition: border-color 0.2s;
+}
+
+.eduCard:hover {
+  border-color: var(--border-hover);
+}
+
+.eduLabel {
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.eduDegree {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.eduInst {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.eduYear {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
