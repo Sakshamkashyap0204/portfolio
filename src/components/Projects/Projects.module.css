@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  width: 66.666%;
+  width: 100%;
   margin: 0 auto;
 }
 
