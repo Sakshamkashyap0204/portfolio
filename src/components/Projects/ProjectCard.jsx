@@ -16,6 +16,7 @@ export default function ProjectCard({ project, delay, onOpen, large }) {
   return (
     <motion.article
       className={`${styles.card} ${large ? styles.large : ''}`}
+      layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

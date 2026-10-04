@@ -178,3 +178,14 @@
   border-color: rgba(52,211,153,0.35);
   background: var(--green-dim);
 }
+
+@media (max-width: 600px) {
+  .caseStudyBtn,
+  .iconBtn {
+    min-height: 44px;
+  }
+
+  .iconBtn {
+    width: 44px;
+  }
+}

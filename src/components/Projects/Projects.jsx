@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { FiGithub, FiExternalLink } from 'react-icons/fi'
+import { FiGithub, FiExternalLink, FiSearch } from 'react-icons/fi'
 import { projects } from '../../data/projects'
 import { socials } from '../../data/socials'
 import ProjectCard from './ProjectCard'
@@ -9,11 +9,25 @@ import styles from './Projects.module.css'
 
 export default function Projects() {
   const [active, setActive] = useState(null)
+  const [activeCategory, setActiveCategory] = useState('All')
+  const [query, setQuery] = useState('')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
-  const featured = projects.filter((p) => p.featured)
-  const rest = projects.filter((p) => !p.featured)
+  const categories = ['All', ...new Set(projects.flatMap((project) => project.categories))]
+  const filteredProjects = projects.filter((project) => {
+    const matchesCategory =
+      activeCategory === 'All' || project.categories.includes(activeCategory)
+    const searchText = [
+      project.name,
+      project.tagline,
+      project.description,
+      ...project.technologies,
+    ].join(' ').toLowerCase()
+    return matchesCategory && searchText.includes(query.trim().toLowerCase())
+  })
+  const featured = filteredProjects.filter((project) => project.featured)
+  const rest = filteredProjects.filter((project) => !project.featured)
 
   return (
     <section id="projects" className={`section ${styles.bg}`} ref={ref}>
@@ -42,6 +56,32 @@ export default function Projects() {
           <div className="divider" />
         </motion.div>
 
+        <div className={styles.controls}>
+          <label className={styles.search}>
+            <FiSearch size={16} aria-hidden="true" />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search projects or technologies"
+              aria-label="Search projects or technologies"
+            />
+          </label>
+          <div className={styles.filters} aria-label="Filter projects by category">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={`${styles.filter} ${activeCategory === category ? styles.activeFilter : ''}`}
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={activeCategory === category}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className={styles.featured}>
           {featured.map((p, i) => (
             <ProjectCard
@@ -64,6 +104,9 @@ export default function Projects() {
             />
           ))}
         </div>
+        {filteredProjects.length === 0 && (
+          <p className={styles.empty}>No projects match that search.</p>
+        )}
       </div>
 
       <AnimatePresence>

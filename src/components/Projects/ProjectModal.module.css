@@ -189,4 +189,6 @@
   .body { padding: 20px; }
   .ctaRow { flex-direction: column; }
   .btnOutline, .btnPrimary { justify-content: center; }
+  .closeBtn { width: 44px; height: 44px; }
+  .btnOutline, .btnPrimary { min-height: 44px; }
 }
